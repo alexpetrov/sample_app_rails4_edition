@@ -4,15 +4,7 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= bootstrap_form_for(@user, inline_errors: true) do |f| %>
-            <%= render 'shared/error_messages' %>
-
-            <%= f.text_field :name, class: "form-control", icon: "user" %>
-
-            <%= f.email_field :email, icon: "envelope" %>
-
-            <%= f.password_field :password, icon: "lock" %>
-
-            <%= f.password_field :password, label: "Confirm Password", icon: "lock" %>
+            <%= render 'fields', f: f %>
 
             <%= f.submit "Create my account", class: "btn btn-primary" %>
         <% end %>

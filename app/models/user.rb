@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  #FIXME: It would be better not to allow blank password by removing password field from user edit form to some special form change password
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
   def User.digest(string)
 #    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
