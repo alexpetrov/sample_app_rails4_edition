@@ -6,6 +6,7 @@
             <%= f.email_field :email, icon: "envelope" %>
             <%= f.password_field :password, icon: "lock" %>
 
+            <%= link_to "(forgot password)", new_password_reset_path %>
             <%= f.submit "Log in", class: "btn btn-primary" %>
         <% end %>
 
