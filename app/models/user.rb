@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   #FIXME: It would be better not to allow blank password by removing password field from user edit form to some special form change password
   validates :password, length: { minimum: 6 }, allow_blank: true
 
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
   def User.digest(string)
 #    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     cost = BCrypt::Engine::MIN_COST
