@@ -53,3 +53,9 @@ end
 def resource_tests(resource)
   integration_tests(resource) << controller_test(resource)
 end
+
+guard :rubocop, all_on_start: false, cli: ['--format', 'clang', '--rails'] do
+# guard :rubocop do
+  watch(%r{.+\.rb$})
+  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+end
