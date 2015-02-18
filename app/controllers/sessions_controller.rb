@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     log_in user
